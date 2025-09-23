@@ -21,9 +21,6 @@ Tables:
 - payments → Logs payment attempts and status (SUCCESS/FAILED).
 - refunds → Logs refunds initiated/completed.
 
-# ER Diagram
-<img width="1536" height="1024" alt="ER-Atlys Automation" src="https://github.com/user-attachments/assets/9b30d9eb-5eec-4f2c-ba79-9452b105b526" />
-
 # Sample Data
 
 - 10 users (Aarav, Priya, Rohan, etc.)
