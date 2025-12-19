@@ -1,46 +1,88 @@
 # Project Overview
 
-Atlys is a platform providing simplified visa processing services. 
-Customers pay for visa applications, but sometimes payments fail due to issues like insufficient funds or network errors.
-Currently, refund processing requires manual work — failed payments must be identified and fed into a bot for refund execution.
+ElectricPe operates Mobility Centres that connect customers to top electric 2-wheeler brands. 
+ElectricPe wanted to understand where leads were dropping across the Lead to Delivery funnel and identify operational bottlenecks affecting conversions, delivery speed, cancellations, and customer satisfaction.
 
 # Goal:
 
-Design a small SQL-based project that:
-- Stores data for users, employees, orders, payments, and refunds.
-- Identifies failed payments that still need to be refunded.
-- Produces an export-ready dataset for a refund bot.
+Design a Advance Excel-based project that:
+- Analyze end-to-end store operations
+- Build an interactive Excel dashboard
+- Identify bottlenecks and provide actionable recommendations
+- Follow a structured flow: Data → Insights → Recommendations → Impact
 
-# Schema Design
+# Data Overview
 
-Tables:
+Dataset included 1,000+ leads:
 
-- users → Stores user info.
-- employees → Tracks visa officers and refund specialists.
-- orders → Captures visa orders (country, visa_type, amount).
-- payments → Logs payment attempts and status (SUCCESS/FAILED).
-- refunds → Logs refunds initiated/completed.
+- Leads, Pre-bookings, Bookings, Deliveries
+- Store-level TAT (Turnaround Time)
+- Cancellation reasons
+- Lead quality (Hot / Warm / Cold)
+- Customer ratings for NPS calculation
 
-# Sample Data
+# Analysis Performed (Excel)
 
-- 10 users (Aarav, Priya, Rohan, etc.)
-- 8 employees (Visa officers + refund specialists)
-- 
-  32 orders with:
-- 4 visa types → Tourist, Business, Tourist Express, Business Express
-- Countries → US, UK, Canada, Australia, Japan, Germany, Vietnam, Sri Lanka
-- Price logic → Business Express > Tourist Express > Business > Tourist and US > UK > Canada > Australia > Japan > Germany > Vietnam > Sri Lanka
-- Payments → Mix of SUCCESS + FAILED for variety.
-- Refunds → Some COMPLETED, some INITIATED, some not refunded yet.
+# 1. Funnel & KPI Analysis 
+Calculated conversion rates:
+- Lead → Pre-booking: 81.2%
+- Booking → Delivery: 89.8%
+- Final deliveries: 72.9% of total leads
 
-# Practice Questions
-A set of 20 progressively harder SQL questions is included in Atlys Payments _ Questions.pdf
-
-# Example Query
-Q.20 : Build an export-ready dataset for the refund bot. Select payment_id, user name, country, visa_type, amount, payment_date ONLY for failed payments where no COMPLETED refund exists. Ordered by payment_date ASC.
-
-<img width="1068" height="257" alt="Screenshot 2025-09-24 at 1 09 36 AM" src="https://github.com/user-attachments/assets/35c9e06e-8b8e-43f1-a005-f465e281ee17" />
-
-<img width="1068" height="186" alt="Screenshot 2025-09-24 at 1 10 12 AM" src="https://github.com/user-attachments/assets/ff262566-12ce-4ba7-b771-4726dd28d737" />
+<img width="1470" height="263" alt="Screenshot 2025-12-19 at 10 03 42 PM" src="https://github.com/user-attachments/assets/3f487357-4b70-42a5-bf53-c3ebd1b4b894" />
 
 
+# 2. Delivery TAT Analysis
+- Computed average TAT per stage and store
+- Identified Booking → Delivery as the slowest stage
+- Mumbai recorded the highest delivery TAT (4.63 days)
+
+<img width="1470" height="263" alt="Screenshot 2025-12-19 at 10 04 10 PM" src="https://github.com/user-attachments/assets/5ab605a4-7597-4524-a07f-29daed0c111c" />
+
+# 3. Cancellation Analysis
+- Analyzed 271 cancellations
+- Key drivers: Pricing & Financing issues: ~44%
+- Delhi showed disproportionately high finance-related cancellations
+
+<img width="1470" height="275" alt="Screenshot 2025-12-19 at 10 04 30 PM" src="https://github.com/user-attachments/assets/56d88a07-7a8b-40e4-9468-f25f46309a2c" />
+
+# 4. Lead Quality Analysis
+- Hot leads: 30.3%
+- Mumbai & Bangalore had the highest high-intent demand
+
+<img width="1470" height="275" alt="Screenshot 2025-12-19 at 10 04 48 PM" src="https://github.com/user-attachments/assets/05ab19d4-f083-4306-b0b2-86455a4f25b9" />
+
+# 5. NPS Analysis
+- All stores showed negative NPS
+- Overall NPS: -53.5%
+- Strong correlation between slow delivery and customer dissatisfaction
+
+<img width="1470" height="410" alt="Screenshot 2025-12-19 at 10 05 05 PM" src="https://github.com/user-attachments/assets/3efe528f-e3b3-4971-8a13-809220b5a145" />
+
+# 6. Dashboard Design
+Built an interactive Excel dashboard using:
+- Pivot Tables
+- Pivot Charts
+- Slicers
+- KPI summary cards
+
+Dashboard enabled:
+- City-wise drilldowns
+- Funnel visibility
+- Bottleneck identification for store managers
+
+# Key Insights
+- High-intent cities (Mumbai & Bangalore) also had the slowest delivery
+- Delivery delays directly contributed to negative NPS
+- Cancellations were systematic and solvable, not random
+
+# Recommendations
+- Optimize delivery operations in high-demand cities
+- Address pricing & financing concerns early in the sales funnel
+- Improve inventory forecasting for popular models
+- Introduce post-delivery follow-ups to improve customer satisfaction
+
+# Business Impact
+- Improved conversion potential by reducing drop-offs
+- Increased delivery efficiency without additional resources
+- Higher customer loyalty and repeat potential
